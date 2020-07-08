@@ -8,10 +8,9 @@ with open("nodos.txt", "r") as f:
 print(edges)
  
 size = len(edges)
-nodos = 5
 for i in range(len(edges)):
     MAX = max(MAX, max(edges[i])) 
-
+nodos = MAX
 MAX += 2
 
 # Stores the vertices
@@ -64,14 +63,6 @@ def maxCliques(i, l):
 	return noMaximo
 	
 # Driver code 
-with open("nodos.txt", "r") as f:
-	edges=[[int((num)) for num in line.split(',')] for line in f]
-print(edges)
- 
-size = len(edges)
-nodos = max(sorted(edges))
-#nodos = max(nodos[0], nodos[1])
-print(nodos)
 for i in range(size): 
     graph[edges[i][0]][edges[i][1]] = 1
     graph[edges[i][1]][edges[i][0]] = 1 
