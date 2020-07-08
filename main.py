@@ -57,8 +57,9 @@ with open("nodos.txt", "r") as f:
 print(edges)
  
 size = len(edges)
-nodos = 5
-
+nodos = max(sorted(edges))
+#nodos = max(nodos[0], nodos[1])
+print(nodos)
 for i in range(size): 
     graph[edges[i][0]][edges[i][1]] = 1
     graph[edges[i][1]][edges[i][0]] = 1 
