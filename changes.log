@@ -5,3 +5,4 @@ dev/MQ-04/luis  -> Se implementa la obtención del número de nodos de manera di
 dev/MQ-05/bruno –> Se actualizan los comentarios y el README
 migration/MQ-06/bruno –> Se crea el proyecto en Angular y se guarda lo trabajado en python en la carpeta OldProject
 dev/MQ-07/luis –> Se crean las screens
+dev/MQ-08/bruno –> Se configura el routing, los componentes y se añade @angular/material
