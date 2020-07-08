@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MaximoClique"
+    }
+  },
+  "defaultProject": "MaximoClique",
+  "cli": {
+    "analytics": "f3d8065a-3829-477e-8b7f-fe18e36c07e0"
+  }
 }
