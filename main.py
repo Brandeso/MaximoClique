@@ -52,8 +52,10 @@ def maxCliques(i, l):
 	return noMaximo
 	
 # Driver code 
-edges = [[ 1, 2 ],[ 2, 3 ],[ 3, 1 ], 
-    [ 4, 3 ],[ 4, 1 ], [5, 4], [3, 5], [2, 5]]
+with open("nodos.txt", "r") as f:
+	edges=[[int((num)) for num in line.split(',')] for line in f]
+print(edges)
+ 
 size = len(edges)
 nodos = 5
 
