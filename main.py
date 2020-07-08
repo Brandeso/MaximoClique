@@ -1,6 +1,18 @@
 # Python3 implementation of the approach 
-MAX = 7
+MAX = 0
 nodos = 0
+
+# Obtenemos los datos desde el txt
+with open("nodos.txt", "r") as f:
+	edges=[[int((num)) for num in line.split(',')] for line in f]
+print(edges)
+ 
+size = len(edges)
+nodos = 5
+for i in range(len(edges)):
+    MAX = max(MAX, max(edges[i])) 
+
+MAX += 2
 
 # Stores the vertices
 vert = [0] * MAX
@@ -52,18 +64,12 @@ def maxCliques(i, l):
 	return noMaximo
 	
 # Driver code 
-with open("nodos.txt", "r") as f:
-	edges=[[int((num)) for num in line.split(',')] for line in f]
-print(edges)
- 
-size = len(edges)
-nodos = 5
-
 for i in range(size): 
     graph[edges[i][0]][edges[i][1]] = 1
     graph[edges[i][1]][edges[i][0]] = 1 
     degree[edges[i][0]] += 1 
     degree[edges[i][1]] += 1 
+
 for i in range(MAX):
     print(graph[i])
 
