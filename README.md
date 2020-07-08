@@ -31,7 +31,7 @@ python --version
 Para instalar python en Windows, se recomienda instalarlo directamente desde la Microsoft Store. [Más Información Aquí.](https://docs.microsoft.com/es-es/windows/python/beginners)
 
 
-##### En Linux (Ubuntu 16+)
+#### En Linux (Ubuntu 16+)
 
 Se recomienda hacerlo desde la terminal, utilizando los siguientes comandos 
 
