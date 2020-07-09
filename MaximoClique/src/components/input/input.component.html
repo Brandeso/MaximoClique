@@ -1,6 +1,9 @@
-<input type="file" (change)="onChange($event.target.files)">
+<div class='main-container'>
+  <button mat-raised-button (click)='fileInput.click()'>Choose File</button>
+  <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
 
-<div>
-  <h3>File Content</h3>
-  <pre> {{fileContent}} </pre>
+  <div>
+    <h3>File Content</h3>
+    <pre> {{fileContent}} </pre>
+  </div>
 </div>
