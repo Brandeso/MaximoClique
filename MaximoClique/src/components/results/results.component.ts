@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { enableDebugTools } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-results',
