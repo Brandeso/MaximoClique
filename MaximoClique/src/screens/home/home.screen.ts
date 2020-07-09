@@ -9,4 +9,5 @@ export class HomeScreen {
 
   constructor() { }
 
+  title = 'Maximo Clique by Bruno Amezcua & José Luis García'
 }

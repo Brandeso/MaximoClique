@@ -1,1 +1,29 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode='over'>
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine (click)='sidenav.toggle()' routerLink='/home'>
+          <mat-icon>home</mat-icon>
+          INICIO
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)='sidenav.toggle()' routerLink='/algorithm'>
+          <mat-icon>code</mat-icon>
+          ALGORITMO
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class='main-container'>
+    <mat-toolbar color='accent'>
+      <mat-toolbar-row>
+        <button mat-icon-button (click)='sidenav.toggle()'>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Máximo Clique by Bruno Amezcua & José Luis García</h1>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
