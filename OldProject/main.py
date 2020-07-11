@@ -23,17 +23,13 @@ vert = [0] * MAX
 # Generamos una matriz cuadrada para almacenar la informacion del grafo
 graph = [[0 for i in range(MAX)] for j in range(MAX)]
 
-# Declaramos un arreglo en 0's para obtener el grado de los vertices
-degree = [0] * MAX
 
 # Funcion que nos permite revisar si, dado un arreglo de
 # vertices estos son clique o no
-def esClique(b): 
-
+def esClique(b):
 	# Run a loop for all set of edges 
 	for i in range(1, b): 
-		for j in range(i + 1, b): 
-
+		for j in range(i + 1, b):
 			# If any edge is missing 
 			if (graph[vert[i]][vert[j]] == 0): 
 				return False
@@ -53,7 +49,6 @@ def maxCliques(i, l):
 
 		# Aniadimos el vertice a la variable vert
 		vert[l] = j
-		print(vert)
 
 		# Si el grafo no es un clique de tamanio k
 		# entonces no puede ser un clique de tamanio k+1
@@ -70,10 +65,7 @@ def maxCliques(i, l):
 # Organizamos el grafo a partir de los datos obtenidos en el txt
 for i in range(size): 
     graph[edges[i][0]][edges[i][1]] = 1
-    graph[edges[i][1]][edges[i][0]] = 1 
-    degree[edges[i][0]] += 1 
-    degree[edges[i][1]] += 1 
+    graph[edges[i][1]][edges[i][0]] = 1
 
 # Imprimimos el numero maximo de clique
 print(maxCliques(0, 1))
-print(degree)
