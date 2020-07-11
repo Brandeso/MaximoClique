@@ -49,6 +49,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+// Services
+import { ResultsService } from 'src/services/result.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     InfoComponent,
     InputComponent,
     ResultsComponent,
-    VideoComponent
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,9 +73,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
   ],
-  providers: [],
+  providers: [ ResultsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

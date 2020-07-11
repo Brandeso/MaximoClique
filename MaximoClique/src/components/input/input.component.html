@@ -15,7 +15,8 @@
     <pre>{{fileContent}}</pre>
   </div>
   <div fxLayout='row' fxLayoutAlign="end end">
-    <button mat-raised-button color="accent" (click)='fileInput.click()'>Choose File</button>
+    <button mat-raised-button color="warn" (click)='fileInput.click()'>Choose File</button>
     <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
+    <button mat-raised-button color="accent" (click)="logData()">Primary</button>
   </div>
 </div>
