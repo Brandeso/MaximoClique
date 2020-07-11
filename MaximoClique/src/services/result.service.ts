@@ -41,6 +41,9 @@ export class ResultsService {
       this.graph = this.graph.concat(new Array<number>(this._max).fill(0))
     }
 
+    this.defineGraph(edgesData.length, edgesData);
+
+    return this.maxCliques(0, 1);
   };
 
   /* Función que nos permite revisar si, dado un arreglo de
