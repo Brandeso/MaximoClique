@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ResultsService } from 'src/services/result.service';
+import { VisNetworkService, Data, DataSet, Node, Options, Edge } from 'ngx-vis';
 
 @Component({
   selector: 'app-input',
@@ -22,6 +23,7 @@ export class InputComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Obtenemos los datos del txt
   onChange(fileList: FileList): void {
     const file = fileList[0];
     const fileReader: FileReader = new FileReader();
@@ -33,6 +35,7 @@ export class InputComponent implements OnInit {
     this._fileLoaded = !this._fileLoaded;
   }
 
+  // Convertimos los datos para usarlos en el algoritmo
   logData() {
     this.edges = this.fileContent.split('\n').map((item) => {return item.split(',')});
     this.edges = this.rsltSrv.convertToEdges(this.edges);
@@ -41,6 +44,7 @@ export class InputComponent implements OnInit {
     this._hideData = !this._hideData;
   }
 
+  // Generamos el grafo
   showGraph() {
 
     this._showGraph = !this._showGraph;
