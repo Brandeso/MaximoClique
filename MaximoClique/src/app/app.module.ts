@@ -13,7 +13,6 @@ import { AlgorithmScreen } from 'src/screens/algorithm/algorithm.screen';
 // Components
 import { InfoComponent } from 'src/components/about/about.component';
 import { InputComponent } from 'src/components/input/input.component';
-import { ResultsComponent } from 'src/components/results/results.component';
 import { VideoComponent } from 'src/components/video/video.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -59,7 +58,6 @@ import { ResultsService } from 'src/services/result.service';
     AlgorithmScreen,
     InfoComponent,
     InputComponent,
-    ResultsComponent,
     VideoComponent,
   ],
   imports: [

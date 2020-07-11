@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ResultsService } from 'src/services/result.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { ResultsService } from 'src/services/result.service';
   styleUrls: ['./input.component.scss']
 })
 
-export class InputComponent {
+export class InputComponent implements OnInit {
 
   constructor(private rsltSrv: ResultsService) {}
   fileContent: string = '';
@@ -18,6 +18,9 @@ export class InputComponent {
   _hideData = true;
   _showGraph = true;
   _fileLoaded = true;
+
+  ngOnInit() {
+  }
 
   onChange(fileList: FileList): void {
     const file = fileList[0];
@@ -39,6 +42,7 @@ export class InputComponent {
   }
 
   showGraph() {
+
     this._showGraph = !this._showGraph;
   }
 }
