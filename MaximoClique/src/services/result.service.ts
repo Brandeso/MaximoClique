@@ -1,4 +1,5 @@
 import {NodeModel, EdgeModel} from '../models/data.models';
+import {max} from "rxjs/operators";
 
 export class ResultsService {
   _max = 0;
@@ -11,8 +12,10 @@ export class ResultsService {
     }
     return _newEdges;
   }
-  setData(edgesData: any) {
-
+  setData(edgesData: EdgeModel[]) {
+    this._nodes = Math.max.apply(Math, edgesData.map((o) => {return o.from}));
+    this._nodes = Math.max(this._nodes, Math.max.apply(Math, edgesData.map((o) => {return o.to})));
+    return [this._nodes, edgesData.length];
   };
 
   getResults() {

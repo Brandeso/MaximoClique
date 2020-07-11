@@ -11,7 +11,13 @@ export class InputComponent {
 
   constructor(private rsltSrv: ResultsService) {}
   fileContent: string = '';
+  noEdges;
+  noNodes;
   edges;
+  _hideData = true;
+  _showGraph = true;
+  _fileLoaded = true;
+
   onChange(fileList: FileList): void {
     const file = fileList[0];
     const fileReader: FileReader = new FileReader();
@@ -20,6 +26,7 @@ export class InputComponent {
       self.fileContent = fileReader.result as string;
     }
     fileReader.readAsText(file);
+    this._fileLoaded = !this._fileLoaded;
   }
 
   logData() {
@@ -28,5 +35,11 @@ export class InputComponent {
     });
     this.edges = this.rsltSrv.convertToEdges(this.edges);
     console.log(this.edges);
+    [this.noNodes, this.noEdges] = this.rsltSrv.setData(this.edges);
+    this._hideData = !this._hideData;
+  }
+
+  showGraph() {
+    this._showGraph = !this._showGraph;
   }
 }

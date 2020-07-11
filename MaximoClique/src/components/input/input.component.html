@@ -10,13 +10,20 @@
       <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene</li>
     </ul>
   </div>
-  <div>
-    <h3>File Content</h3>
-    <pre>{{fileContent}}</pre>
+  <div *ngIf="!_hideData">
+    <h3>Información del documento</h3>
+    <h4>Nodos: {{noNodes}} Edges: {{noEdges}}</h4>
   </div>
-  <div fxLayout='row' fxLayoutAlign="end end">
-    <button mat-raised-button color="warn" (click)='fileInput.click()'>Choose File</button>
-    <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
-    <button mat-raised-button color="accent" (click)="logData()">Primary</button>
+  <div fxLayout='row' fxLayoutAlign="end center">
+    <div class="button-container">
+      <button mat-raised-button color="warn" (click)='fileInput.click()'>Choose File</button>
+      <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="accent" [disabled]="_fileLoaded" (click)="logData()">Obtener Datos</button>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="accent" [disabled]="_hideData" (click)="showGraph()">Ejecutar Algoritmo</button>
+    </div>
   </div>
 </div>
