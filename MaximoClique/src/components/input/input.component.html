@@ -1,9 +1,21 @@
-<div class='main-container'>
-  <button mat-raised-button (click)='fileInput.click()'>Choose File</button>
-  <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
-
+<div class='main-container' fxLayout="column">
+  <div class="instructions-container">
+    <h4>Instrucciones</h4>
+    <p>Bienvenido al simulador gráfico de nodos.</p>
+    <p>Para probar el funcionamiento del algoritmo, siga estos pasos:</p>
+    <ul>
+      <li>Seleccione un archivo de texto que contenga los edges de un grafo no direccionado</li>
+      <li>El formato de este documento debe ser un .txt con los datos arreglados de la siguiente forma<p>nodo,nodo<p>nodo,nodo<p>Es decir, separados por un salto
+        de línea y </p></li>
+      <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene</li>
+    </ul>
+  </div>
   <div>
     <h3>File Content</h3>
-    <pre> {{fileContent}} </pre>
+    <pre>{{fileContent}}</pre>
+  </div>
+  <div fxLayout='row' fxLayoutAlign="end end">
+    <button mat-raised-button color="accent" (click)='fileInput.click()'>Choose File</button>
+    <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
   </div>
 </div>
