@@ -47,6 +47,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { VisNetworkService } from 'ngx-vis';
 
 // Services
 import { ResultsService } from 'src/services/result.service';
@@ -73,7 +74,7 @@ import { ResultsService } from 'src/services/result.service';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [ ResultsService ],
+  providers: [ ResultsService, VisNetworkService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
