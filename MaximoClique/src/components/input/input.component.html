@@ -1,18 +1,25 @@
 <div class='main-container' fxLayout="column">
   <div class="instructions-container">
     <h4>Instrucciones</h4>
-    <p>Bienvenido al simulador gráfico de nodos.</p>
+    <p>Bienvenido al simulador gráfico de nodos, el cual nos permitirá, a partir de un archivo .txt determinar el máximo clique de un grafo.</p>
     <p>Para probar el funcionamiento del algoritmo, siga estos pasos:</p>
     <ul>
       <li>Seleccione un archivo de texto que contenga los edges de un grafo no direccionado</li>
       <li>El formato de este documento debe ser un .txt con los datos arreglados de la siguiente forma<p>nodo,nodo<p>nodo,nodo<p>Es decir, separados por un salto
-        de línea y </p></li>
-      <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene</li>
+        de línea y una coma.</p></li>
+      <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene al dar click en el botón "Obtener Datos"</li>
+      <li>Finalmente, para ejecutar el algoritmo y ver el grafo, hacer click en el botón "Ejecutar Algoritmo"</li>
     </ul>
   </div>
   <div *ngIf="!_hideData">
     <h3>Información del documento</h3>
-    <h4>Nodos: {{noNodes}} Edges: {{noEdges}}</h4>
+    <h4>Nodos: {{noNodes}}</h4>
+    <h4> Edges:</h4>
+    <p *ngFor="let i of firstEdges">
+        [{{i.from}}, {{i.to}}]
+    </p>
+    <p><b>+{{noEdges - 5}} edges</b></p>
+
   </div>
   <div fxLayout='row' fxLayoutAlign="end center">
     <div class="button-container">

@@ -14,6 +14,7 @@ export class InputComponent {
   noEdges;
   noNodes;
   edges;
+  firstEdges;
   _hideData = true;
   _showGraph = true;
   _fileLoaded = true;
@@ -30,12 +31,10 @@ export class InputComponent {
   }
 
   logData() {
-    this.edges = this.fileContent.split('\n').map((item) => {
-      return item.split(',');
-    });
+    this.edges = this.fileContent.split('\n').map((item) => {return item.split(',')});
     this.edges = this.rsltSrv.convertToEdges(this.edges);
-    console.log(this.edges);
     [this.noNodes, this.noEdges] = this.rsltSrv.setData(this.edges);
+    this.firstEdges = this.edges.slice(0,5);
     this._hideData = !this._hideData;
   }
 
