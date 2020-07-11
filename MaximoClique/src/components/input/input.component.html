@@ -24,7 +24,7 @@
   <div fxLayout='row' fxLayoutAlign="end center">
     <div class="button-container">
       <button mat-raised-button color="warn" (click)='fileInput.click()'>Choose File</button>
-      <input hidden #fileInput type="file" (change)="onChange($event.target.files)">
+      <input hidden #fileInput type="file" (change)="onChange($event.target.files)" accept="text/*">
     </div>
     <div class="button-container">
       <button mat-raised-button color="accent" [disabled]="_fileLoaded" (click)="logData()">Obtener Datos</button>
