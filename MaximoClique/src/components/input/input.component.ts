@@ -19,6 +19,7 @@ export class InputComponent implements OnInit {
   _hideData = true;
   _showGraph = true;
   _fileLoaded = true;
+  maxClique = 0;
 
   ngOnInit() {
   }
@@ -46,7 +47,7 @@ export class InputComponent implements OnInit {
 
   // Generamos el grafo
   showGraph() {
-
+    this.maxClique = this.rsltSrv.getResults(this.edges, this.noNodes);
     this._showGraph = !this._showGraph;
   }
 }

@@ -4,9 +4,9 @@ import {max} from "rxjs/operators";
 export class ResultsService {
   _max = 0;
   _nodes = 0;
-  vert: Array<number>;
-  graph: Array<number>;
-  degree: Array<number>;
+  vert: Array<number> = [];
+  graph: Array<Array<number>> = [];
+  degree: Array<number> = [];
   numMax: number = 0; // Número máximo de clique
 
   convertToEdges(edges: string[]) {
@@ -38,7 +38,10 @@ export class ResultsService {
 
     // Generamos una mátriz cuadrada para almacenar la información del grafo
     for (let i: number = 0; i < this._max; i++) {
-      this.graph = this.graph.concat(new Array<number>(this._max).fill(0))
+      this.graph[i] = [];
+      for(let j = 0; j < this._max; j++) {
+        this.graph[i][j] = 0;
+      }
     }
 
     this.defineGraph(edgesData.length, edgesData);

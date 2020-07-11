@@ -33,4 +33,7 @@
       <button mat-raised-button color="accent" [disabled]="_hideData" (click)="showGraph()">Ejecutar Algoritmo</button>
     </div>
   </div>
+  <div fxLayout="column" class="results-container" *ngIf="!_showGraph">
+    <div>El máximo Clique es de: {{maxClique}}</div>
+  </div>
 </div>
