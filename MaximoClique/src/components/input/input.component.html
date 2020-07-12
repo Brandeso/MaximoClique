@@ -9,8 +9,10 @@
         de línea y una coma.</p>
         <p><b>Nota:</b> Es importante que el .txt no tenga un salto de línea al final para que el algoritmo funcione correctamente.</p>
       </li>
-      <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene al dar click en el botón "Obtener Datos"</li>
-      <li>Finalmente, para ejecutar el algoritmo y ver el grafo, hacer click en el botón "Ejecutar Algoritmo"</li>
+      <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene al dar click en el botón <b>"Obtener Datos"</b></li>
+      <li>Finalmente, para ejecutar el algoritmo y ver el grafo, hacer click en el botón <b>"Ejecutar Algoritmo"</b></li>
+      <li>Para volver a usar el sistema con un archivo diferente, es necesario hacer click en el botón de <b>"Reset"</b> </li>
+      <li>En caso de que desee obtener archivs txt de ejemplo, el botón <b>"Arhivos ejemplo"</b> abrirá una pestaña con diferentes archivos</li>
     </ul>
   </div>
   <div *ngIf="!_hideData && _showGraph">
@@ -36,6 +38,9 @@
     </div>
     <div class="button-container">
       <button mat-raised-button color="accent" [disabled]="_hideData" (click)="showGraph()">Ejecutar Algoritmo</button>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="openGithub()">Arhivos ejemplo</button>
     </div>
   </div>
   <div fxLayout="column" class="results-container" *ngIf="!_showGraph">

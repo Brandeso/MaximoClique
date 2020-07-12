@@ -109,4 +109,8 @@ export class InputComponent implements OnInit {
   public updateNetwork(edgesData: EdgeModel) {
 
   }
+
+  openGithub() {
+    window.open("https://github.com/Brandeso/MaximoClique/tree/master/MaximoClique/src/assets", "_blank");
+  }
 }
