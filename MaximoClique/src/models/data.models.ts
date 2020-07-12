@@ -1,6 +1,6 @@
 export class NodeModel {
-  id: String;
-  label: String;
+  id: number;
+  label: string;
   title?: String;
 }
 export class EdgeModel {

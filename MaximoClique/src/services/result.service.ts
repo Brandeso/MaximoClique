@@ -1,4 +1,4 @@
-import { EdgeModel } from '../models/data.models';
+import {EdgeModel, NodeModel} from '../models/data.models';
 
 export class ResultsService {
   _max = 0;
@@ -12,6 +12,14 @@ export class ResultsService {
       _newEdges.push({from: parseInt(edges[_i][0]), to: parseInt(edges[_i][1])})
     }
     return _newEdges;
+  }
+
+  convertToNodes(numNodes: number) {
+    let _newNodes: NodeModel[] = [];
+    for(let _i = 1; _i <= numNodes; _i++) {
+      _newNodes.push({id: _i, label: _i.toString()});
+    }
+    return _newNodes;
   }
 
   setData(edgesData: EdgeModel[]) {

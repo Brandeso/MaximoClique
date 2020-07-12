@@ -3,7 +3,7 @@ import { ResultsService } from 'src/services/result.service';
 import { VisNetworkService, Data, Options } from 'ngx-vis';
 import { DataSet } from 'vis-data/peer/umd/vis-data';
 import { Node, Edge } from 'vis-network/peer/umd/vis-network';
-import { EdgeModel } from "../../models/data.models";
+import { EdgeModel, NodeModel } from "../../models/data.models";
 
 @Component({
   selector: 'app-input',
@@ -30,6 +30,7 @@ export class InputComponent implements OnInit {
   noEdges;
   noNodes;
   _edges;
+  _nodes;
   firstEdges;
   _hideData = true;
   _showGraph = true;
@@ -38,20 +39,10 @@ export class InputComponent implements OnInit {
 
   ngOnInit() {
     this.nodes = new DataSet<Node>([
-      { id: '1', label: 'Node 1' },
-      { id: '2', label: 'Node 2' },
-      { id: '3', label: 'Node 3' },
-      { id: '4', label: 'Node 4' },
-      { id: '5', label: 'Node 5', title: 'Title of Node 5' }
     ]);
     this.edges = new DataSet<Edge>([
-      { from: '1', to: '2' },
-      { from: '1', to: '3' },
-      { from: '2', to: '4' },
-      { from: '2', to: '5' }
     ]);
     this.visNetworkData = { nodes: this.nodes, edges: this.edges };
-
     this.visNetworkOptions = {};
   }
 
@@ -79,6 +70,8 @@ export class InputComponent implements OnInit {
   // Generamos el grafo
   showGraph() {
     this.maxClique = this.rsltSrv.getResults(this._edges, this.noNodes);
+    this._nodes = this.rsltSrv.convertToNodes(this.noNodes);
+    this.updateNetwork(this._edges, this._nodes);
     this._showGraph = !this._showGraph;
   }
 
@@ -106,8 +99,14 @@ export class InputComponent implements OnInit {
     });
   }
 
-  public updateNetwork(edgesData: EdgeModel) {
-
+  public updateNetwork(edgesData: EdgeModel[], nodesData: NodeModel[]) {
+    for(let _i of nodesData) {
+      this.nodes.add({id: _i.id, label: _i.label});
+    }
+    for(let _i of edgesData) {
+      this.edges.add({to: _i.to, from: _i.from});
+    }
+    this.visNetworkService.fit(this.visNetwork);
   }
 
   openGithub() {

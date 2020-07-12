@@ -22,7 +22,7 @@
     <p *ngFor="let i of firstEdges">
         [{{i.from}}, {{i.to}}]
     </p>
-    <p><b>+{{noEdges - 5}} edges</b></p>
+    <p *ngIf="noEdges > 5"><b>+{{noEdges - 5}} edges</b></p>
 
   </div>
   <div fxLayout='row' fxLayoutAlign="end center">
@@ -43,19 +43,19 @@
       <button mat-raised-button color="primary" (click)="openGithub()">Arhivos ejemplo</button>
     </div>
   </div>
-  <div fxLayout="column" class="results-container" *ngIf="!_showGraph">
-    <div class="result-container" fxFlex fxLayoutAlign="center center">El máximo Clique es de: {{maxClique}}</div>
-    <!--***************** ngx-viz***************** -->
-    <div *ngIf="visNetworkData">
-      <h2>Representación del Grafo</h2>
-      <h3>Red de {{noNodes}} Nodos</h3>
-      <div
-        class="network-canvas"
-        [visNetwork]="visNetwork"
-        [visNetworkData]="visNetworkData"
-        [visNetworkOptions]="visNetworkOptions"
-        (initialized)="networkInitialized()"
-      ></div>
-    </div>
+   <div fxLayout="column" class="results-container" *ngIf="!_showGraph">
+     <div class="result-container" fxFlex fxLayoutAlign="center center">El máximo Clique es de: {{maxClique}}</div>
+   </div>
+  <!--***************** ngx-viz***************** -->
+  <div *ngIf="visNetworkData">
+    <h2>Representación del Grafo</h2>
+    <h3>Red de {{noNodes}} Nodos</h3>
+    <div
+      class="network-canvas"
+      [visNetwork]="visNetwork"
+      [visNetworkData]="visNetworkData"
+      [visNetworkOptions]="visNetworkOptions"
+      (initialized)="networkInitialized()"
+    ></div>
   </div>
 </div>
