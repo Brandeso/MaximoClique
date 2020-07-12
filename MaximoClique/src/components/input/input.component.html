@@ -11,7 +11,7 @@
       <li>Finalmente, para ejecutar el algoritmo y ver el grafo, hacer click en el botón "Ejecutar Algoritmo"</li>
     </ul>
   </div>
-  <div *ngIf="!_hideData">
+  <div *ngIf="!_hideData && _showGraph">
     <h3>Información del documento</h3>
     <h4>Nodos: {{noNodes}}</h4>
     <h4> Edges:</h4>
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div fxLayout="column" class="results-container" *ngIf="!_showGraph">
-    <div>El máximo Clique es de: {{maxClique}}</div>
+    <div class="result-container" fxFlex fxLayoutAlign="center center">El máximo Clique es de: {{maxClique}}</div>
     <!--***************** ngx-viz***************** -->
     <div *ngIf="visNetworkData">
       <h2>Network</h2>
