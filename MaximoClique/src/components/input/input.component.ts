@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ResultsService } from 'src/services/result.service';
 import { VisNetworkService, Data, Options } from 'ngx-vis';
 import { DataSet } from 'vis-data/peer/umd/vis-data';
-import { Node, Edge } from 'vis-network/peer/umd/vis-network'
+import { Node, Edge } from 'vis-network/peer/umd/vis-network';
+import { EdgeModel } from "../../models/data.models";
 
 @Component({
   selector: 'app-input',
@@ -102,5 +103,7 @@ export class InputComponent implements OnInit {
     });
   }
 
-  public
+  public updateNetwork(edgesData: EdgeModel) {
+    
+  }
 }
