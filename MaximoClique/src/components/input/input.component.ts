@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultsService } from 'src/services/result.service';
-import { VisNetworkService, Data, DataSet, Node, Options, Edge } from 'ngx-vis';
+import { VisNetworkService, Data, Options } from 'ngx-vis';
+import { DataSet } from 'vis-data/peer/umd/vis-data';
+import { Node, Edge } from 'vis-network/peer/umd/vis-network'
 
 @Component({
   selector: 'app-input',
@@ -22,7 +24,7 @@ export class InputComponent implements OnInit {
   constructor(
     private rsltSrv: ResultsService,
     private visNetworkService: VisNetworkService) {}
-  
+
   fileContent: string = '';
   noEdges;
   noNodes;
@@ -99,4 +101,6 @@ export class InputComponent implements OnInit {
       }
     });
   }
+
+  public
 }
