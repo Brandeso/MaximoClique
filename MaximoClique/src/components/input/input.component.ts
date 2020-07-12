@@ -82,6 +82,9 @@ export class InputComponent implements OnInit {
     this._showGraph = !this._showGraph;
   }
 
+  refresh() {
+    window.location.reload();
+  }
 /******************* ngx-vis *******************/
   public addNode(): void {
     const lastId = this.nodes.length;
@@ -104,6 +107,6 @@ export class InputComponent implements OnInit {
   }
 
   public updateNetwork(edgesData: EdgeModel) {
-    
+
   }
 }

@@ -6,7 +6,9 @@
     <ul>
       <li>Seleccione un archivo de texto que contenga los edges de un grafo no direccionado</li>
       <li>El formato de este documento debe ser un .txt con los datos arreglados de la siguiente forma<p>nodo,nodo<p>nodo,nodo<p>Es decir, separados por un salto
-        de línea y una coma.</p></li>
+        de línea y una coma.</p>
+        <p><b>Nota:</b> Es importante que el .txt no tenga un salto de línea al final para que el algoritmo funcione correctamente.</p>
+      </li>
       <li>Una vez seleccionado el archivo, se mostrará el número de nodos que el archivo contiene al dar click en el botón "Obtener Datos"</li>
       <li>Finalmente, para ejecutar el algoritmo y ver el grafo, hacer click en el botón "Ejecutar Algoritmo"</li>
     </ul>
@@ -22,6 +24,9 @@
 
   </div>
   <div fxLayout='row' fxLayoutAlign="end center">
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="refresh()">Reset</button>
+    </div>
     <div class="button-container">
       <button mat-raised-button color="warn" (click)='fileInput.click()'>Choose File</button>
       <input hidden #fileInput type="file" (change)="onChange($event.target.files)" accept="text/*">
