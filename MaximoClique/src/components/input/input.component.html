@@ -37,8 +37,8 @@
     <div class="result-container" fxFlex fxLayoutAlign="center center">El máximo Clique es de: {{maxClique}}</div>
     <!--***************** ngx-viz***************** -->
     <div *ngIf="visNetworkData">
-      <h2>Network</h2>
-      <h3>Basic usage</h3>
+      <h2>Representación del Grafo</h2>
+      <h3>Red de {{noNodes}} Nodos</h3>
       <div
         class="network-canvas"
         [visNetwork]="visNetwork"
@@ -46,8 +46,6 @@
         [visNetworkOptions]="visNetworkOptions"
         (initialized)="networkInitialized()"
       ></div>
-      <button type="button" class="btn btn-default" (click)="addNode()">Add node</button>
-      <p><strong>Note:</strong> Open your dev tools to see the console output when the network receives click events.</p>
     </div>
   </div>
 </div>
