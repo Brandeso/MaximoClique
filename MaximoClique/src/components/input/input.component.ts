@@ -83,7 +83,7 @@ export class InputComponent implements OnInit {
   }
 
   refresh() {
-    window.location.reload();
+    window.location.reload()
   }
 /******************* ngx-vis *******************/
   public addNode(): void {

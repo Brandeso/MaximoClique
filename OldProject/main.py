@@ -27,39 +27,22 @@ graph = [[0 for i in range(MAX)] for j in range(MAX)]
 # Funcion que nos permite revisar si, dado un arreglo de
 # vertices estos son clique o no
 def esClique(b):
-	# Run a loop for all set of edges 
 	for i in range(1, b): 
 		for j in range(i + 1, b):
-			# If any edge is missing 
-			if (graph[vert[i]][vert[j]] == 0): 
+			if (graph[vert[i]][vert[j]] == 0):
 				return False
-	
 	return True
 
 # Funcion para encontrar el numero
 # maximo de los cliques
-def maxCliques(i, l): 
-
-	# Tamanio maximo del clique
+def maxCliques(i, l):
 	numMaximo = 0
-
-	# Revisamos si a partir del i+1
-	# algun vertice puede ser insertado
 	for j in range(i + 1, nodos + 1):
-
-		# Aniadimos el vertice a la variable vert
 		vert[l] = j
+		if (esClique(l + 1)):
+			numMaximo = max(numMaximo, l);#print("L: "+str(l))
 
-		# Si el grafo no es un clique de tamanio k
-		# entonces no puede ser un clique de tamanio k+1
-		if (esClique(l + 1)): 
-
-			# Actualizamos el numero maximo de clique
-			numMaximo = max(numMaximo, l)
-
-			# Revisamos si se puede aniadir otro 'edge'
 			numMaximo = max(numMaximo, maxCliques(j, l + 1))
-		
 	return numMaximo
 	
 # Organizamos el grafo a partir de los datos obtenidos en el txt

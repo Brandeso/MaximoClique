@@ -1,5 +1,4 @@
-import {NodeModel, EdgeModel} from '../models/data.models';
-import {max} from "rxjs/operators";
+import { EdgeModel } from '../models/data.models';
 
 export class ResultsService {
   _max = 0;
@@ -47,9 +46,9 @@ export class ResultsService {
   /* Función que nos permite revisar si, dado un arreglo de
     vertices estos son clique o no */
   esClique(b: number) {
-    for(let i = 1; i < b+1; i++) {
-      for(let j = 2; j < b+1; j++) {
-        if(this.graph[this.vert[i]][this.vert[j]]) {
+    for(let i = 1; i < b; i++) {
+      for(let j = i+1; j < b; j++) {
+        if(this.graph[this.vert[i]][this.vert[j]] == 0) {
           return false;
         }
       }
@@ -60,7 +59,7 @@ export class ResultsService {
   //Funcion para encontrar el número máximo de los cliques
   maxCliques(i: number, l: number) {
     let numMaximo = 0;
-    for(let j = i+1; j < this._nodes +1; j++) {
+    for(let j = i+1; j < this._nodes + 1; j++) {
       this.vert[l] = j;
       if(this.esClique(l+1)) {
         numMaximo = Math.max(numMaximo, l);
@@ -77,7 +76,6 @@ export class ResultsService {
       this.graph[edges[i].to][edges[i].from] = 1
       this.graph[edges[i].from][edges[i].to] = 1
     }
-    console.log(this.graph);
   };
 
 }
