@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class InfoComponent {
-
+  openGithub() {
+    window.open("https://github.com/Brandeso/MaximoClique", "_blank");
+  }
 }

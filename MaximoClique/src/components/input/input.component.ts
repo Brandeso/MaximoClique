@@ -111,6 +111,6 @@ export class InputComponent implements OnInit {
   }
 
   openGithub() {
-    window.open("https://github.com/Brandeso/MaximoClique/tree/master/MaximoClique/src/assets", "_blank");
+    window.open("https://github.com/Brandeso/MaximoClique/tree/master/MaximoClique/src/assets/ejemplos", "_blank");
   }
 }
